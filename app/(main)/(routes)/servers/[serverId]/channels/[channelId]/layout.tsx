@@ -1,7 +1,7 @@
 import { db } from "@lib/database";
 import { Metadata } from "next";
 
-type Props = {
+interface Props {
   params: {
     channelId: string;
   };

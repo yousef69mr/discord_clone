@@ -5,12 +5,12 @@ import { db } from "@lib/database";
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
 
-type Props = {
+interface Props {
   params: {
     memberId: string;
     serverId: string;
   };
-};
+}
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
   // read route params
