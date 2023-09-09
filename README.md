@@ -2,7 +2,7 @@
 
 ![Home Page](/public/threads_clone.png)
 
-## Preview link : https://discord-clone-i06bu2v7j-yousef69mr.vercel.app/
+## Preview link : https://discord-clone-yousef69mr.vercel.app/
 
 ### Description: A Next js Discord clone platform to keep in touch with friends in real-time communication with video chat support
 
