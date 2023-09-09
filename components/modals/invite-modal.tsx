@@ -16,6 +16,16 @@ import { useOrigin } from "@hooks/use-origin";
 import axios from "axios";
 import { Check, Copy, RefreshCw } from "lucide-react";
 import { useState } from "react";
+import {
+  FacebookIcon,
+  FacebookShareButton,
+  LinkedinShareButton,
+  WhatsappIcon,
+  WhatsappShareButton,
+  LinkedinIcon,
+  TwitterShareButton,
+  TwitterIcon,
+} from "react-share";
 
 const InviteModal = () => {
   const { onOpen, isOpen, onClose, type, data } = useModal();
@@ -32,7 +42,7 @@ const InviteModal = () => {
   const inviteUrl = `${origin}/invite/${server?.inviteCode}`;
 
   const onCopy = () => {
-    navigator.clipboard.writeText(inviteLink ? inviteLink : inviteUrl);
+    navigator.clipboard.writeText(inviteLink || inviteUrl);
     setCopied(true);
 
     setTimeout(() => setCopied(false), 1500);
@@ -67,7 +77,7 @@ const InviteModal = () => {
           <div className="flex items-center mt-2 gap-x-2">
             <Input
               className="border-0 bg-zinc-300/50 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
-              value={inviteLink ? inviteLink : inviteUrl}
+              value={inviteLink || inviteUrl}
               readOnly
               disabled={isLoading}
             />
@@ -78,6 +88,41 @@ const InviteModal = () => {
                 <Copy className="w-4 h-4" />
               )}
             </Button>
+          </div>
+          <div className="flex items-center justify-center mt-2 gap-x-2">
+            <FacebookShareButton
+              url={inviteLink || inviteUrl}
+              quote={`${server?.name} server`}
+              hashtag={`${server?.name}`}
+              disabled={isLoading}
+            >
+              <FacebookIcon size={40} round />
+            </FacebookShareButton>
+
+            <WhatsappShareButton
+              url={inviteLink || inviteUrl}
+              title={server?.name}
+              disabled={isLoading}
+            >
+              <WhatsappIcon size={40} round />
+            </WhatsappShareButton>
+
+            <LinkedinShareButton
+              url={inviteLink || inviteUrl}
+              title={server?.name}
+              disabled={isLoading}
+            >
+              <LinkedinIcon size={40} round />
+            </LinkedinShareButton>
+            <TwitterShareButton
+              url={inviteLink || inviteUrl}
+              title={`${server?.name} server`}
+              hashtags={[`${server?.name}`]}
+              via={"discord"}
+              disabled={isLoading}
+            >
+              <TwitterIcon size={40} round />
+            </TwitterShareButton>
           </div>
           <Button
             disabled={isLoading}
