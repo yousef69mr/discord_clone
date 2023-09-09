@@ -3,6 +3,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  // output   = "./generated/client"
 }
 
 datasource db {
@@ -134,10 +135,9 @@ model Conversation {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  
+  @@unique([memberOneId, memberTwoId])
   // @@index([memberOneId])
   @@index([memberTwoId])
-  @@unique([memberOneId, memberTwoId])
 }
 
 model DirectMessage {
