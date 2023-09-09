@@ -10,9 +10,6 @@ type Props = {
     memberId: string;
     serverId: string;
   };
-  searchParams: {
-    video?: boolean;
-  };
 };
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
