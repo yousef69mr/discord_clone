@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 
 import { currentProfile } from "@lib/current-profile";
 import { redirectToSignIn } from "@clerk/nextjs";
-// import { metadata } from "@app/layout";
+
 
 interface Props {
   params: {
@@ -40,11 +40,9 @@ const Page = async (props: Props) => {
     },
   });
 
-  // if (!server) {
-  //   return redirect("/");
-  // }
-
-  // metadata.title = `${server.name} Server`;
+  if (!server) {
+    return redirect("/");
+  }
 
   const initialChannel = server?.channels[0];
 

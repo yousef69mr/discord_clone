@@ -138,7 +138,10 @@ const ChatItem = (props: Props) => {
         <div className="flex flex-col w-full">
           <div className="flex items-center gap-x-2">
             <div className="flex items-center">
-              <p  onClick={onMemberClick} className="text-sm font-semibold hover:underline">
+              <p
+                onClick={onMemberClick}
+                className="cursor-pointer text-sm font-semibold hover:underline"
+              >
                 {member.profile.name}
               </p>
               <ActionTooltip label={member.role}>
@@ -160,6 +163,8 @@ const ChatItem = (props: Props) => {
                 src={fileUrl}
                 alt={content}
                 fill
+                priority
+                sizes="32x32 64x64 128x128"
                 className="object-cover"
               />
             </a>
