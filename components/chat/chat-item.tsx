@@ -126,6 +126,26 @@ const ChatItem = (props: Props) => {
   const isPDF = fileType === "pdf" && fileUrl;
   const isImage = !isPDF && fileUrl;
 
+  const highlightMessage = (text: string): string => {
+    // Regular expression patterns for hashtags and URLs
+    const hashtagPattern = /#(\w+)/g;
+    const urlPattern = /(https?:\/\/[^\s]+)/g;
+
+    // Replace hashtags with highlighted version
+    const highlightedText = text.replace(
+      hashtagPattern,
+      '<span class="hashtag">$&</span>'
+    );
+
+    // Replace URLs with highlighted version
+    const finalText = highlightedText.replace(
+      urlPattern,
+      '<a href="$&" class="url" target="_blank">$&</a>'
+    );
+
+    return finalText;
+  };
+
   return (
     <div className="relative group flex items-center hover:bg-black/5 p-4 transition w-full">
       <div className="group flex gap-x-2 items-start w-full">
@@ -190,7 +210,9 @@ const ChatItem = (props: Props) => {
                   "italic text-zinc-500 dark:text-zinc-400 text-xs mt-1"
               )}
             >
-              {content}
+              <div
+                dangerouslySetInnerHTML={{ __html: highlightMessage(content) }}
+              ></div>
               {isUpdated && !deleted && (
                 <span className="text-[10px] mx-2 text-zinc-500 dark:text-zinc-400">
                   (edited)

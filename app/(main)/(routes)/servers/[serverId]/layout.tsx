@@ -22,6 +22,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
   });
 
+  if (!server) {
+    return redirect("/");
+  }
+
   return {
     title: `${server?.name || ""} server`,
     icons: {

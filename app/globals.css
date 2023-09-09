@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
 button:active {
   transform: scale(0.9);
 }
@@ -77,4 +81,12 @@ button:active {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.hashtag {
+  @apply text-indigo-500 dark:text-indigo-400 font-semibold;
+}
+
+.url {
+  @apply text-indigo-500 dark:text-indigo-400 font-semibold underline;
 }
