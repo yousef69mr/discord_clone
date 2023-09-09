@@ -1,6 +1,6 @@
 # Discord Clone
 
-![Home Page](/public/threads_clone.png)
+![Home Page](/public/discord_clone.png)
 
 ## Preview link : https://discord-clone-yousef69mr.vercel.app/
 
