@@ -210,9 +210,9 @@ const ChatItem = (props: Props) => {
                   "italic text-zinc-500 dark:text-zinc-400 text-xs mt-1"
               )}
             >
-              <div
+              <span
                 dangerouslySetInnerHTML={{ __html: highlightMessage(content) }}
-              ></div>
+              ></span>
               {isUpdated && !deleted && (
                 <span className="text-[10px] mx-2 text-zinc-500 dark:text-zinc-400">
                   (edited)
